@@ -1,0 +1,44 @@
+{
+    "name": "vscode-chat",
+    "displayName": "VS Code Chat",
+    "description": "A chat panel extension",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "viewsContainers": {
+            "activitybar": [{
+                "id": "chat-sidebar",
+                "title": "Chat",
+                "icon": "$(comment-discussion)"
+            }]
+        },
+        "views": {
+            "chat-sidebar": [{
+                "type": "webview",
+                "id": "chat-sidebar",
+                "name": "Chat",
+                "icon": "$(comment-discussion)"
+            }]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.80.0",
+        "@types/node": "^16.0.0",
+        "typescript": "^5.0.0"
+    }
+} 
